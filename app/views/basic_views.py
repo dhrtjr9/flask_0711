@@ -21,3 +21,14 @@ def post_list():
 def loop():
     test = [1, 2, 3, 4, 5]
     return render_template('test.html', list=test)
+
+@fisa.route('/')
+def index():
+    return render_template('index.html')
+
+@fisa.route('/submit', methods=['GET', 'POST'])
+def submit():
+    form = MyForm()
+    if form.validate_on_submit():
+        return redirect('/success')
+    return render_template('submit.html', form=form)
