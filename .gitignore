@@ -29,3 +29,9 @@ __pycache__/
 # DB
 migrations/
 
+# 비밀번호 관련 설정
+# 개발용, 배포용 파일을 만들어서 
+config.py
+
+
+

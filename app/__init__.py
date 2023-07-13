@@ -1,7 +1,7 @@
-from flask import Flask
+from flask import Flask 
 from flask_migrate import Migrate
 from flask_sqlalchemy import SQLAlchemy
-import config
+import config 
 
 db = SQLAlchemy()
 migrate = Migrate()
@@ -14,7 +14,10 @@ def create_app():
     db.init_app(app)
     migrate.init_app(app, db)
 
-    from .views import basic_views
+    from .views import basic_views, answer_views, question_views, auth_views
     app.register_blueprint(basic_views.fisa)
+    app.register_blueprint(answer_views.answer)
+    app.register_blueprint(question_views.question)
+    app.register_blueprint(auth_views.auth)
     
     return app
